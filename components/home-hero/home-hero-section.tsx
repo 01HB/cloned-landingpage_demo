@@ -57,8 +57,8 @@ const HomeHeroSection = () => {
                         }}
                         animate={{
                             translateX: "-12%",
-                            translateY: "0.04%",
-                            transition: { delay: 0.3, duration: 1.1, ease: "easeOut" },
+                            translateY: "0%",
+                            transition: { delay: 0.3, duration: 1.1, ease: [0, 0.3, 0.8, 1] },
                         }}
                         className="h-[115%] w-[115%]"
                     >

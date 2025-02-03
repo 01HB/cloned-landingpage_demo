@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 
 type TransformAxes = {
@@ -25,7 +25,13 @@ export const MouseProvider = ({ children }: {
 }) => {
     const [lightTransform, setLightTransform] = useState<TransformAxes>({ x: 0, y: 0 });
     const [darkTransform, setDarkTransform] = useState<TransformAxes>({ x: 0, y: 0 });
+    const [introDone, setIntroDone] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const introtimer = setTimeout(() => setIntroDone(true), 2000);
+        return () => clearTimeout(introtimer);
+    }, [])
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         if (!containerRef.current) return;
@@ -37,8 +43,8 @@ export const MouseProvider = ({ children }: {
         const ratioX = mouseX / width;  // Value between 0 (left) and 1 (right)
         const ratioY = mouseY / height; // Value between 0 (top) and 1 (bottom)
 
-        const maxTranslateX = 36;  // Max horizontal translation (px)
-        const maxTranslateY = 56;  // Max vertical translation (px)
+        const maxTranslateX = 26;  // Max horizontal translation (px)
+        const maxTranslateY = 26;  // Max vertical translation (px)
 
         // Adjusting translation for light patterns
         const lightX = (0.5 - ratioX) * maxTranslateX;
@@ -60,7 +66,7 @@ export const MouseProvider = ({ children }: {
         >
             <div
                 ref={containerRef}
-                onMouseMove={handleMouseMove}
+                onMouseMove={introDone ? handleMouseMove : undefined}
                 className="w-full"
             >
                 {children}

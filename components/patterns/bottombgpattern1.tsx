@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
 type positionOnAxes = {
     x: number;
@@ -15,16 +16,25 @@ const BottomBgPattern1 = ({
     darkPatternsTransform?: positionOnAxes;
 }) => {
 
-    const [initialEnded, setInitialEnded] = useState(false);
+    const [initialEnded, setInitialEnded] = useState<boolean>(false);
+    const elementRef = useRef<SVGSVGElement | null>(null);
+    const elementIsInView = useInView(elementRef, { once: true, amount: 0.3 });
 
     useEffect(() => {
-        setTimeout(() => {
-            setInitialEnded(true);
-        }, 2000);
-    }, []);
+        let bttmanimationstimer: NodeJS.Timeout;
+        if (elementIsInView) {
+            bttmanimationstimer = setTimeout(() => {
+                setInitialEnded(true);
+            }, 2000);
+        }
+
+        return () => {
+            clearTimeout(bttmanimationstimer);
+        }
+    }, [elementIsInView]);
 
     return (
-        <svg
+        <svg ref={elementRef}
             className="lg:block hidden absolute h-[120%] w-[120%] left-[-10%] top-[-10%]"
             preserveAspectRatio="xMidYMid slice"
             viewBox="0 0 2316 1021"
@@ -34,12 +44,12 @@ const BottomBgPattern1 = ({
             <g id="cta-background-patterns">
                 <g
                     id="dark-patterns"
-                    className={`${initialEnded ? '' : 'animate-initialToView'}`}
+                    className={`${elementIsInView ? (initialEnded ? 'opacity-100' : 'opacity-100 animate-initialToView') : 'opacity-0'}`}
                     style={
-                        initialEnded ? {
+                        (elementIsInView && initialEnded) ? {
                             transform: `translate3d(${darkPatternsTransform.x}px, ${darkPatternsTransform.y}px, 0)`,
                             transition: "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-                        } : {}
+                        } : { }
                     }
                 >
                     <g id="Vector" className="mix-blend-multiply">
@@ -82,7 +92,7 @@ const BottomBgPattern1 = ({
                 </g>
                 <g
                     id="light-patterns"
-                    className={`${initialEnded ? '' : 'animate-initialToViewDelayed'}`}
+                    className={`${elementIsInView ? (initialEnded ? 'opacity-100' : 'opacity-100 animate-initialToViewDelayed') : 'opacity-0'}`}
                     style={
                         initialEnded ? {
                             transform: `translate3d(${lightPatternsTransform.x}px, ${lightPatternsTransform.y}px, 0)`,

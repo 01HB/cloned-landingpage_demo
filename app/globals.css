@@ -160,9 +160,24 @@
     color: rgb(185 217 255 / var(--tw-text-opacity));
   }
 
+  .border-blue-main {
+    --tw-border-opacity: 1;
+    border-color: rgb(31 128 240 / var(--tw-border-opacity));
+  }
+
   .border-blue-dark {
     --tw-border-opacity: 1;
     border-color: rgb(22 67 119 / var(--tw-border-opacity));
+  }
+
+  .drop-shadow-button-primary {
+    --tw-drop-shadow: drop-shadow(0px 3px 3px rgba(16, 62, 117, .37));
+    filter: var(--tw-drop-shadow);
+  }
+
+  .drop-shadow-nav {
+    --tw-drop-shadow: drop-shadow(0px -5px 28px rgba(22, 67, 119, .37));
+    filter: var(--tw-drop-shadow);
   }
 
   .shadow-button-primary {

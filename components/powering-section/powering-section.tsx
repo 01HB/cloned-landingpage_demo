@@ -1,3 +1,6 @@
+"use client";
+
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import FemaleEmp from "@/public/assets/powering/female_employee.png";
 import AnyBaaS from "@/public/assets/powering/anybaas.svg";
@@ -7,6 +10,16 @@ import FutureOfFinanceBg from "@/public/assets/powering/futureoffinance_backgrou
 import FutureOfFinanceFg from "@/public/assets/powering/futureoffinance_foreground.png";
 
 const PoweringSection = () => {
+
+    const { scrollY } = useScroll();
+    const yRange = [25, 80, 1000];
+    // translation from -20px to 20px
+    const bgY_Transform = useTransform(scrollY, yRange, [0, -25, 25]);
+    const fgY_Transform = useTransform(scrollY, [100, 1000], [5, -10]);
+    // spring effect
+    const smoothYBG = useSpring(bgY_Transform, { stiffness: 35, damping: 25 });
+    const smoothYFG = useSpring(fgY_Transform, { stiffness: 35, damping: 25 });
+
     return (
         <>
             <section className="container min-[480px]:max-md:max-w-[480px] min-[976px]:max-lg:max-w-none min-[1200px]:max-w-[1200px] mt-[62px] font-inter">
@@ -74,11 +87,9 @@ const PoweringSection = () => {
                                 </figure>
                             </div>
 
-                            <figure className="absolute inset-0 w-full h-full -z-10"
+                            <motion.figure className="absolute inset-0 w-full h-full -z-10"
                                 style={{
-                                    transform: "translate3d(0%, -5%, 0px)",
-                                    transition: "transform 2500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                                    animationFillMode: "forwards",
+                                    y: smoothYBG,
                                 }}
                             >
                                 <Image
@@ -87,13 +98,11 @@ const PoweringSection = () => {
                                     alt="background frame"
                                     className="object-cover w-full h-full overflow-visible"
                                 />
-                            </figure>
+                            </motion.figure>
 
-                            <figure className="absolute h-[50%] w-[50%] z-10 -bottom-[18%] right-[20%]"
+                            <motion.figure className="absolute h-[50%] w-[50%] z-10 -bottom-[18%] right-[20%]"
                                 style={{
-                                    transform: "translate3d(0%, 2%, 0px)",
-                                    transition: "transform 2500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                                    animationFillMode: "forwards",
+                                    y: smoothYFG,
                                 }}
                             >
                                 <Image
@@ -102,7 +111,7 @@ const PoweringSection = () => {
                                     fill
                                     className="object-cover w-full h-full overflow-visible"
                                 />
-                            </figure>
+                            </motion.figure>
                         </div>
                         <div className="lg:pt-2">
                             <div>
@@ -177,11 +186,9 @@ const PoweringSection = () => {
                             </figure>
                         </div>
 
-                        <figure className="absolute inset-0 w-full h-full -z-10"
+                        <motion.figure className="absolute inset-0 w-full h-full -z-10"
                             style={{
-                                transform: "translate3d(0%, -5%, 0px)",
-                                transition: "transform 2500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                                animationFillMode: "forwards",
+                                y: smoothYBG,
                             }}
                         >
                             <Image
@@ -190,13 +197,11 @@ const PoweringSection = () => {
                                 alt="background frame"
                                 className="object-cover w-full h-full overflow-visible"
                             />
-                        </figure>
+                        </motion.figure>
 
-                        <figure className="absolute h-[50%] w-[50%] z-10 -bottom-[18%] right-[20%]"
+                        <motion.figure className="absolute h-[50%] w-[50%] z-10 -bottom-[18%] right-[20%]"
                             style={{
-                                transform: "translate3d(0%, 2%, 0px)",
-                                transition: "transform 2500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                                animationFillMode: "forwards",
+                                y: smoothYFG,
                             }}
                         >
                             <Image
@@ -205,7 +210,7 @@ const PoweringSection = () => {
                                 fill
                                 className="object-cover w-full h-full overflow-visible"
                             />
-                        </figure>
+                        </motion.figure>
                     </div>
                 </div>
             </section>

@@ -19,9 +19,13 @@ const HeroBackgroundPattern = memo(({
     const [initialEnded, setInitialEnded] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        const herotimer = setTimeout(() => {
             setInitialEnded(true);
-        }, 2000);
+        }, 2500);
+
+        return () => {
+            clearTimeout(herotimer);
+        }
     }, []);
 
     return (
@@ -39,7 +43,7 @@ const HeroBackgroundPattern = memo(({
                     style={
                         initialEnded ? {
                             transform: `translate3d(${bgPatternsTransform.x}px, ${bgPatternsTransform.y}px, 0)`,
-                            transition: "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+                            transition: "transform 500ms ease-out",
                         } : {}
                     }
                 >
@@ -88,7 +92,7 @@ const HeroBackgroundPattern = memo(({
                     style={
                         initialEnded ? {
                             transform: `translate3d(${fgPatternsTransform.x}px, ${fgPatternsTransform.y}px, 0)`,
-                            transition: "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+                            transition: "transform 500ms ease-out",
                         } : {
                         }
                     }
