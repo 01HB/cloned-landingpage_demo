@@ -50,9 +50,9 @@ const config: Config = {
       animation: {
         initialToView: "initialToView 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
         initialToViewDelayed: "initialToViewDelayed 2.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-        floatinWind: "hoverFloat 15s ease-in-out infinite",
-        floatinWindLeft: "hoverFloatLeft 15s ease-in-out infinite",
-        floatinWindRight: "hoverFloatRight 15s ease-in-out infinite",
+        floatinWind: "hoverFloat 11s ease-in-out infinite",
+        floatinWindLeft: "hoverFloatLeft 11s ease-in-out infinite",
+        floatinWindRight: "hoverFloatRight 11s ease-in-out infinite",
       }
     },
   },

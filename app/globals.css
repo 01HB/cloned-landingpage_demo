@@ -203,4 +203,8 @@
     padding-right: 1.938rem;
     padding-left: 1.938rem;
   }
+
+  .fill-blue-main {
+    fill: rgb(31 128 240 / 1);
+  }
 }

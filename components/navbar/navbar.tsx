@@ -6,9 +6,9 @@ import Applogo from "@/public/assets/applogo.svg";
 
 const Navbar = () => {
     return (
-        <header className="container min-[480px]:max-md:max-w-[480px] min-[976px]:max-lg:max-w-none min-[1200px]:max-w-[1200px] bg-transparent text-white max-lg:bg-blue-main max-lg:py-8 top-0 lg:absolute w-full lg:pt-[17px] lg:pb-[25px] text-res-body-p1 lg:text-body-p1 z-[9999] font-inter">
+        <header className="bg-transparent text-white max-lg:bg-blue-main max-lg:py-8 top-0 lg:absolute w-full lg:pt-[17px] lg:pb-[25px] text-res-body-p1 lg:text-body-p1 z-[9999] font-inter">
             <div id="main-navigation" className="relative">
-                <div className="container flex items-center flex-wrap justify-between">
+                <div className="container min-[480px]:max-md:max-w-[480px] min-[976px]:max-lg:max-w-none min-[1200px]:max-w-[1200px] flex items-center flex-wrap justify-between">
                     <h1>
                         <Link aria-label="Go to home page" href="#" rel="home">
                             <Image
@@ -117,20 +117,6 @@ const Navbar = () => {
                                     </span>
                                 </li>
 
-                                {/* <Link href="/" className="flex-nowrap border border-white bg-transparent hover:bg-white hover:text-blue-main hidden max-lg:w-full max-lg:justify-center max-lg:mt-16 pl-6 pr-10 py-[13px] text-res-link lg:text-link lg:flex items-center group/highlight transition-all drop-shadow-button-primary hover:shadow-button-primary rounded-xs">
-                                    Contac Us
-                                    <svg
-                                        className="fill-white translate-x-3.5 transition-transform group-hover/highlight:translate-x-5 group-hover/highlight:fill-blue-main"
-                                        width="7"
-                                        height="11"
-                                        viewBox="0 0 7 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path d="M6.67969 5.89844L2.13281 10.4688C1.89844 10.6797 1.54688 10.6797 1.33594 10.4688L0.796875 9.92969C0.585938 9.71875 0.585938 9.36719 0.796875 9.13281L4.40625 5.5L0.796875 1.89062C0.585938 1.65625 0.585938 1.30469 0.796875 1.09375L1.33594 0.554688C1.54688 0.34375 1.89844 0.34375 2.13281 0.554688L6.67969 5.125C6.89062 5.33594 6.89062 5.6875 6.67969 5.89844Z"></path>
-                                    </svg>
-                                </Link> */}
-
                                 <div className="ml-6 my-auto">
                                     <div className="relative lg:block hidden">
                                         <button className="rounded-[132px] flex items-center justify-center space-x-[8px] border px-[14px] py-[8px] lg:text-body-p1 text-res-body-p0 text-white border-white">
@@ -163,6 +149,19 @@ const Navbar = () => {
                             </ul>
                         </nav>
                     </div>
+                    <Link href="/" className="hidden lg:flex flex-nowrap items-center border border-white bg-transparent hover:bg-white hover:text-blue-main max-lg:w-full max-lg:justify-center max-lg:mt-16 pl-6 pr-10 py-[13px] text-res-link lg:text-link group/highlight transition-all drop-shadow-button-primary hover:shadow-button-primary rounded-xs">
+                        {`Contact Us`}
+                        <svg
+                            className="fill-white translate-x-3.5 transition-transform group-hover/highlight:translate-x-5 group-hover/highlight:fill-blue-main"
+                            width="7"
+                            height="11"
+                            viewBox="0 0 7 11"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path d="M6.67969 5.89844L2.13281 10.4688C1.89844 10.6797 1.54688 10.6797 1.33594 10.4688L0.796875 9.92969C0.585938 9.71875 0.585938 9.36719 0.796875 9.13281L4.40625 5.5L0.796875 1.89062C0.585938 1.65625 0.585938 1.30469 0.796875 1.09375L1.33594 0.554688C1.54688 0.34375 1.89844 0.34375 2.13281 0.554688L6.67969 5.125C6.89062 5.33594 6.89062 5.6875 6.67969 5.89844Z"></path>
+                        </svg>
+                    </Link>
                 </div>
             </div>
         </header>
