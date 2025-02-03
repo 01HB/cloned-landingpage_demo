@@ -177,6 +177,12 @@
     font-weight: 600;
   }
 
+  .text-res-link {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+
   .bg-clip-hero-image {
     -webkit-clip-path: polygon(67% 0, 100% 0, 100% 68%, 80% 100%, 0 100%, 32% 51%);
     clip-path: polygon(67% 0, 100% 0, 100% 68%, 80% 100%, 0 100%, 32% 51%);
@@ -206,5 +212,10 @@
 
   .fill-blue-main {
     fill: rgb(31 128 240 / 1);
+  }
+
+  .bg-blue-main {
+    --tw-bg-opacity: 1;
+    background-color: rgb(31 128 240 / var(--tw-bg-opacity));
   }
 }
