@@ -51,7 +51,7 @@ const PhilosophySection = () => {
                             whileInView={{
                                 opacity: 1,
                                 translateY: "0%",
-                                transition: { duration: 0.4, delay: (idx === 0 ? 0 : (idx === 1 ? 0.07 : 0.14)) }
+                                transition: { duration: 0.5, delay: (idx === 0 ? 0 : (idx === 1 ? 0.07 : 0.14)) }
                             }}
                             viewport={{ once: true, amount: 0.1 }}
                             className="z-20 h-full space-y-[8px] md:space-y-6 bg-[#F8FCFF] rounded-[20px] p-6 md:p-8"
